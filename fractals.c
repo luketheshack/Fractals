@@ -16,7 +16,7 @@ int main() {
 				sierpinski(mrgn, mrgn, wd-mrgn, mrgn, wd/2, ht-mrgn);
 				break;	
 			case '2':
-				
+				shrinkingSquares(mrgn, mrgn, wd-mrgn, mrgn, wd-mrgn, ht-mrgn, mrgn, ht-mrgn);
 				break;
 			case '3':
 			
@@ -71,7 +71,15 @@ void drawTriangle( int x1, int y1, int x2, int y2, int x3, int y3 )
 }
 
 void shrinkingSquares( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 ) {
+	int dist = abs(x2-x1)/4;
+	if (dist < 10) return;
+
+	drawSquare(x1 + dist, y1 + dist, x2 - dist, y2 + dist, x3 - dist, y3 - dist, x4 + dist, y4 - dist);
 	
+	shrinkingSquares(x1, y1, x1 + 2*dist, y1, x1 + 2*dist, x1 + 2*dist, x1, y1 + 2*dist); 
+	shrinkingSquares(x2, y2, x2 + 2*dist, y2, x2 + 2*dist, x2 + 2*dist, x2, y2 + 2*dist); 
+	shrinkingSquares(x3, y3, x3 + 2*dist, y3, x3 + 2*dist, x3 + 2*dist, x3, y3 + 2*dist); 
+	shrinkingSquares(x4, y4, x4 + 2*dist, y4, x4 + 2*dist, x4 + 2*dist, x4, y4 + 2*dist); 
 }
 
 void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 ) {
