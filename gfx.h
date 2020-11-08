@@ -16,7 +16,7 @@
 #define PI 3.14159
 
 // spiral squares
-void spiralSquares(int, int);
+void spiralSquares(int, int, int, int);
 
 // draw tree
 void drawTree( int, int, int, int );

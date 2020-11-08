@@ -19,7 +19,7 @@ int main() {
 				shrinkingSquares(mrgn, mrgn, wd-mrgn, mrgn, wd-mrgn, ht-mrgn, mrgn, ht-mrgn);
 				break;
 			case '3':
-				spiralSquares(0, ht/2);
+				spiralSquares(wd/2, ht/2, 0, ht/2);
 				break;
 			case '4':
 
@@ -103,15 +103,35 @@ void drawTree( int x1, int y1, int x2, int y2 ) {
 	drawTree(x2, y2, x2 - dim*cos(curr_angle + PI/3), y2 - dim*sin(curr_angle + PI/3));
 }
 
-void spiralSquares(int angle, int radius) {
+void spiralSquares(int xstart, int ystart, int angle, int radius) {
 	if (radius < 2) return;
-
+	if (angle > 2*PI) radius -= 2*PI;
 	int size = radius/10;
-	int xcor = radius * cos(angle);
-	int ycor = radius * sin(angle);
-	drawSquare(xcor, ycor, xcor+size, ycor, xcor+size, ycor+size, xcor, ycor+size);
+	int xoff = radius * cos(angle); // x offset
+	int yoff = radius * sin(angle); // y offset
 
-	angle += 0.6;
+	square(xstart + xoff, ystart + yoff, size);
+
+	angle += PI/10;
 	radius *= 0.9;
-	spiralSquares(angle, radius);
+	spiralSquares(xstart, ystart, angle, radius);
 }
+
+
+void square(int xm, int ym, int radius) {
+	polygon(xm, ym, 4, radius);
+}
+
+void polygon(int xm, int ym, int sides, int radius) {
+	float i, part, x1, x2, y1, y2;
+	part = 2*PI/sides;
+	
+	for (i = 0; i <= 2*PI; i += part) {
+		x1 = radius * cos(i) + xm;
+		x2 = radius * cos(i + part) + xm;
+		y1 = -1 * radius * sin(i) + ym;
+		y2 = -1 * radius * sin(i + part) + ym;
+		gfx_line(x2, y2, x1, y1);	
+	}	
+}
+
