@@ -77,9 +77,9 @@ void shrinkingSquares( int x1, int y1, int x2, int y2, int x3, int y3, int x4, i
 	drawSquare(x1 + dist, y1 + dist, x2 - dist, y2 + dist, x3 - dist, y3 - dist, x4 + dist, y4 - dist);
 	
 	shrinkingSquares(x1, y1, x1 + 2*dist, y1, x1 + 2*dist, x1 + 2*dist, x1, y1 + 2*dist); 
-	shrinkingSquares(x2, y2, x2 + 2*dist, y2, x2 + 2*dist, x2 + 2*dist, x2, y2 + 2*dist); 
-	shrinkingSquares(x3, y3, x3 + 2*dist, y3, x3 + 2*dist, x3 + 2*dist, x3, y3 + 2*dist); 
-	shrinkingSquares(x4, y4, x4 + 2*dist, y4, x4 + 2*dist, x4 + 2*dist, x4, y4 + 2*dist); 
+	//shrinkingSquares(x2, y2, x2 + 2*dist, y2, x2 + 2*dist, x2 + 2*dist, x2, y2 + 2*dist); 
+	//shrinkingSquares(x3, y3, x3 + 2*dist, y3, x3 + 2*dist, x3 + 2*dist, x3, y3 + 2*dist); 
+	//shrinkingSquares(x4, y4, x4 + 2*dist, y4, x4 + 2*dist, x4 + 2*dist, x4, y4 + 2*dist); 
 }
 
 void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 ) {

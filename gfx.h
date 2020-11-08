@@ -15,6 +15,9 @@
 #define SIZE 50
 #define PI 3.14159
 
+// make shrinking squares
+void shrinkingSquares( int, int, int, int, int, int, int, int );
+
 // make sierpinski triangle
 void sierpinski( int, int, int, int, int, int );
 
