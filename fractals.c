@@ -103,6 +103,18 @@ void drawTree( int x1, int y1, int distance, float angle) {
 void drawFern(int x1, int y1, int distance, float angle) {
 	if (distance < 1) return;
 	float inc_angle = PI/6;
+
+	gfx_line(x1, y1, x1 + distance*cos(angle), y1 + distance*sin(angle));
+	
+	drawFern(x1, y1 + distance/4, (int) distance * .5, angle + inc_angle);
+	drawFern(x1, y1 + distance/4, (int) distance * .5, angle - inc_angle);
+	drawFern(x1, y1 + 2*distance/4, (int) distance * .5, angle + inc_angle);
+	drawFern(x1, y1 + 2*distance/4, (int) distance * .5, angle - inc_angle);
+	drawFern(x1, y1 + 3*distance/4, (int) distance * .5, angle + inc_angle);
+	drawFern(x1, y1 + 3*distance/4, (int) distance * .5, angle - inc_angle);
+	drawFern(x1, y1 + 4*distance/4, (int) distance * .5, angle + inc_angle);
+	drawFern(x1, y1 + 4*distance/4, (int) distance * .5, angle - inc_angle);
+	
 }
 
 void spiralSquares(int xstart, int ystart, int angle, int radius) {

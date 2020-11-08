@@ -18,6 +18,9 @@
 // spiral squares
 void spiralSquares(int, int, int, int);
 
+// draw fern
+void drawFern(int, int, int, float);
+
 // draw tree
 void drawTree( int, int, int, float );
 
