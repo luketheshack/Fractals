@@ -19,7 +19,7 @@
 void spiralSquares(int, int, int, int);
 
 // draw tree
-void drawTree( int, int, int, int );
+void drawTree( int, int, int, float );
 
 // make shrinking squares
 void shrinkingSquares( int, int, int, int, int, int, int, int );

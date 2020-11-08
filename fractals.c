@@ -28,10 +28,9 @@ int main() {
 
 				break;
 			case '6':
-
+				drawTree(wd/2, ht, wd/2, 3*PI/2);
 				break;
 			case '7':
-				drawTree(wd/2, ht, wd/2, ht/2);
 				break;
 			case '8':
 
@@ -90,17 +89,20 @@ void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 
 	gfx_line(x4,y4,x1,y1);
 }
 
-void drawTree( int x1, int y1, int x2, int y2 ) {
-	if (abs(y2-y1) < 2) return;
+void drawTree( int x1, int y1, int distance, float angle) {
+	if (distance < 1) return;
+	
+	float inc_angle = PI/6;
+	gfx_line(x1, y1, x1 + distance*cos(angle), y1 + distance*sin(angle));
 
-	int dim = abs(y2-y1) * 0.55;
-	gfx_line(x1, y1, x2, y2);
+	drawTree(x1 + distance*cos(angle), y1 + distance*sin(angle), (int) distance*.5, angle + inc_angle);
+	drawTree(x1 + distance*cos(angle), y1 + distance*sin(angle), (int) distance*.5, angle - inc_angle);
 
-	double curr_angle = 0;
-	curr_angle = atan((y2-y1)/sqrt((y2-y1)*(y2-y1)+(x2-x1)*(x2-x1)));
+}
 
-	drawTree(x2, y2, x2 + dim*cos(curr_angle + PI/3), y2 - dim*sin(curr_angle + PI/3));
-	drawTree(x2, y2, x2 - dim*cos(curr_angle + PI/3), y2 - dim*sin(curr_angle + PI/3));
+void drawFern(int x1, int y1, int distance, float angle) {
+	if (distance < 1) return;
+	float inc_angle = PI/6;
 }
 
 void spiralSquares(int xstart, int ystart, int angle, int radius) {
@@ -110,7 +112,7 @@ void spiralSquares(int xstart, int ystart, int angle, int radius) {
 	int xoff = radius * cos(angle); // x offset
 	int yoff = radius * sin(angle); // y offset
 
-	square(xstart + xoff, ystart + yoff, size);
+	//square(xstart + xoff, ystart + yoff, size);
 
 	angle += PI/10;
 	radius *= 0.9;
