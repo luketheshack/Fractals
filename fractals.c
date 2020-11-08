@@ -31,7 +31,7 @@ int main() {
 
 				break;
 			case '7':
-				drawTree(wd/2, 0, wd/2, ht/2);
+				drawTree(wd/2, ht, wd/2, ht/2);
 				break;
 			case '8':
 
@@ -91,7 +91,7 @@ void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 
 }
 
 void drawTree( int x1, int y1, int x2, int y2 ) {
-	if (abs(x2-x1) < 5) return;
+	if (abs(y2-y1) < 5) return;
 	
 	int dim = abs(x2-x1) * 0.5;
 	gfx_line(x1, y1, x2, y2);
