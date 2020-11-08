@@ -18,6 +18,9 @@
 // make sierpinski triangle
 void sierpinski( int, int, int, int, int, int );
 
+// draw square
+void drawSquare( int, int, int, int, int, int, int, int );
+
 // draw triangle
 void drawTriangle( int, int, int, int, int, int );
 

@@ -16,23 +16,32 @@ int main() {
 				sierpinski(mrgn, mrgn, wd-mrgn, mrgn, wd/2, ht-mrgn);
 				break;	
 			case '2':
-
+				
+				break;
 			case '3':
 			
+				break;
 			case '4':
 
+				break;
 			case '5':
 
+				break;
 			case '6':
 
+				break;
 			case '7':
 
+				break;
 			case '8':
 
+				break;
 			case 'q':
 				printf("Goodbye!\n");
+				break;
 			default:
 				printf("Please enter valid input.\n");	
+				break;
 		}	
 	}	
 	return 0;
@@ -56,9 +65,19 @@ void sierpinski( int x1, int y1, int x2, int y2, int x3, int y3 )
 
 void drawTriangle( int x1, int y1, int x2, int y2, int x3, int y3 )
 {
-  gfx_line(x1,y1,x2,y2);
-  gfx_line(x2,y2,x3,y3);
-  gfx_line(x3,y3,x1,y1);
+    gfx_line(x1,y1,x2,y2);
+    gfx_line(x2,y2,x3,y3);
+    gfx_line(x3,y3,x1,y1);
 }
 
+void shrinkingSquares( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 ) {
+	
+}
+
+void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 ) {
+	gfx_line(x1,y1,x2,y2);
+	gfx_line(x2,y2,x3,y3);
+	gfx_line(x3,y3,x4,y4);
+	gfx_line(x4,y4,x1,y1);
+}
 
