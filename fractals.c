@@ -31,6 +31,7 @@ int main() {
 				drawTree(wd/2, ht, wd/2, 3*PI/2);
 				break;
 			case '7':
+				drawFern(wd/2, ht, wd/2, 3*PI/2);
 				break;
 			case '8':
 
@@ -101,24 +102,25 @@ void drawTree( int x1, int y1, int distance, float angle) {
 }
 
 void drawFern(int x1, int y1, int distance, float angle) {
-	if (distance < 1) return;
+	if (distance < 20) return;
 	float inc_angle = PI/6;
-
-	gfx_line(x1, y1, x1 + distance*cos(angle), y1 + distance*sin(angle));
 	
-	drawFern(x1, y1 + distance/4, (int) distance * .5, angle + inc_angle);
-	drawFern(x1, y1 + distance/4, (int) distance * .5, angle - inc_angle);
-	drawFern(x1, y1 + 2*distance/4, (int) distance * .5, angle + inc_angle);
-	drawFern(x1, y1 + 2*distance/4, (int) distance * .5, angle - inc_angle);
-	drawFern(x1, y1 + 3*distance/4, (int) distance * .5, angle + inc_angle);
-	drawFern(x1, y1 + 3*distance/4, (int) distance * .5, angle - inc_angle);
-	drawFern(x1, y1 + 4*distance/4, (int) distance * .5, angle + inc_angle);
-	drawFern(x1, y1 + 4*distance/4, (int) distance * .5, angle - inc_angle);
+	int xoff = distance*cos(angle);
+	int yoff = distance*sin(angle);
+	gfx_line(x1, y1, x1 + xoff, y1 + yoff);
 	
+	drawFern(x1 + xoff/4, y1 + yoff/4, (int) distance * .5, angle + inc_angle);
+	drawFern(x1 + xoff/4, y1 + yoff/4, (int) distance * .5, angle - inc_angle);
+	drawFern(x1 + 2*xoff/4, y1 + 2*yoff/4, (int) distance * .5, angle + inc_angle);
+	drawFern(x1 + 2*xoff/4, y1 + 2*yoff/4, (int) distance * .5, angle - inc_angle);
+	drawFern(x1 + 3*xoff/4, y1 + 3*yoff/4, (int) distance * .5, angle + inc_angle);
+	drawFern(x1 + 3*xoff/4, y1 + 3*yoff/4, (int) distance * .5, angle - inc_angle);
+	drawFern(x1 + 4*xoff/4, y1 + 4*yoff/4, (int) distance * .5, angle + inc_angle);
+	drawFern(x1 + 4*xoff/4, y1 + 4*yoff/4, (int) distance * .5, angle - inc_angle);
 }
 
 void spiralSquares(int xstart, int ystart, int angle, int radius) {
-	if (radius < 2) return;
+	if (radius < 5) return;
 	if (angle > 2*PI) radius -= 2*PI;
 	int size = radius/10;
 	int xoff = radius * cos(angle); // x offset
