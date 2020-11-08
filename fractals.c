@@ -38,6 +38,7 @@ int main() {
 				break;
 			case 'q':
 				printf("Goodbye!\n");
+				return 0;
 				break;
 			default:
 				printf("Please enter valid input.\n");	
@@ -79,7 +80,7 @@ void shrinkingSquares( int x1, int y1, int x2, int y2, int x3, int y3, int x4, i
 	shrinkingSquares(x1, y1, x1 + 2*dist, y1, x1 + 2*dist, y1 + 2*dist, x1, y1 + 2*dist); 
 	shrinkingSquares(x1 + 2*dist, y1, x1 + 4*dist, y1, x1 + 4*dist, y1 + 2*dist, x1 + 2*dist, y1 + 2*dist); 
 	shrinkingSquares(x1 + 2*dist, y1 + 2*dist, x1 + 4*dist, y1 + 2*dist, x1 + 4*dist, y1 + 4*dist, x1 + 2*dist, y1 + 4*dist); 
-	//shrinkingSquares(x1 + 2*dist, y1, x1 + 4*dist, y1, x1 + 4*dist, y1 + 2*dist, x1 + 2*dist, y1 + 2*dist); 
+	shrinkingSquares(x1, y1 + 2*dist, x1 + 2*dist, y1 + 2*dist, x1 + 2*dist, y1 + 4*dist, x1, y1 + 4*dist); 
 }
 
 void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 ) {
