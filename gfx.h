@@ -15,6 +15,12 @@
 #define SIZE 50
 #define PI 3.14159
 
+// make sierpinski triangle
+void sierpinski( int, int, int, int, int, int );
+
+// draw triangle
+void drawTriangle( int, int, int, int, int, int )
+
 // randomize ball
 void randomizeball(float *, float *, float *, float *);
 
