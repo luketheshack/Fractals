@@ -19,7 +19,7 @@ int main() {
 				shrinkingSquares(mrgn, mrgn, wd-mrgn, mrgn, wd-mrgn, ht-mrgn, mrgn, ht-mrgn);
 				break;
 			case '3':
-			
+				spiralSquares(0, ht/2);
 				break;
 			case '4':
 
@@ -91,11 +91,27 @@ void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 
 }
 
 void drawTree( int x1, int y1, int x2, int y2 ) {
-	if (abs(y2-y1) < 5) return;
-	
-	int dim = abs(x2-x1) * 0.5;
+	if (abs(y2-y1) < 2) return;
+
+	int dim = abs(y2-y1) * 0.55;
 	gfx_line(x1, y1, x2, y2);
 
-	drawTree(x2, y2, x2 + dim*cos(PI/6), y2 + dim*sin(PI/6));
-	drawTree(x2, y2, x2 - dim*cos(PI/6), y2 + dim*sin(PI/6));
+	double curr_angle = 0;
+	curr_angle = atan((y2-y1)/sqrt((y2-y1)*(y2-y1)+(x2-x1)*(x2-x1)));
+
+	drawTree(x2, y2, x2 + dim*cos(curr_angle + PI/3), y2 - dim*sin(curr_angle + PI/3));
+	drawTree(x2, y2, x2 - dim*cos(curr_angle + PI/3), y2 - dim*sin(curr_angle + PI/3));
+}
+
+void spiralSquares(int angle, int radius) {
+	if (radius < 2) return;
+
+	int size = radius/10;
+	int xcor = radius * cos(angle);
+	int ycor = radius * sin(angle);
+	drawSquare(xcor, ycor, xcor+size, ycor, xcor+size, ycor+size, xcor, ycor+size);
+
+	angle += 0.6;
+	radius *= 0.9;
+	spiralSquares(angle, radius);
 }

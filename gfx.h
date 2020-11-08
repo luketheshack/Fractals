@@ -15,6 +15,9 @@
 #define SIZE 50
 #define PI 3.14159
 
+// spiral squares
+void spiralSquares(int, int);
+
 // draw tree
 void drawTree( int, int, int, int );
 
