@@ -15,6 +15,9 @@
 #define SIZE 50
 #define PI 3.14159
 
+// draw tree
+void drawTree( int, int, int, int );
+
 // make shrinking squares
 void shrinkingSquares( int, int, int, int, int, int, int, int );
 
