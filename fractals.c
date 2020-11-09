@@ -25,7 +25,7 @@ int main() {
 				drawLace(wd/2, ht/2, ht/3);
 				break;
 			case '5':
-				snowflake(wd/2, ht/2, ht/4);
+				snowflake(wd/2, ht/2, ht/3);
 				break;
 			case '6':
 				drawTree(wd/2, ht, wd/2, 3*PI/2);
@@ -167,14 +167,13 @@ void drawLace(int x1, int y1, int radius) {
 }
 
 void snowflake(int x1, int y1, int distance) {
-	if (distance < 6) return;
+	if (distance < 2) return;
 	float angle = 2*PI/5;
 
 	float i;
 	for (i = 0; i <= 2*PI; i += angle) {
-		printf("%d\n", distance);
 		gfx_line(x1, y1, x1 + distance*cos(i), y1 + distance*sin(i));
-		snowflake(x1 + distance*cos(i), y1 + distance*sin(i), distance * .5);
+		snowflake(x1 + distance*cos(i), y1 + distance*sin(i), distance * .35);
 	}
 
 } 
