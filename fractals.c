@@ -28,7 +28,7 @@ int main() {
 				snowflake(wd/2, ht/2, ht/3);
 				break;
 			case '6':
-				drawTree(wd/2, ht, wd/2, 3*PI/2);
+				drawTree(wd/2, ht, wd/3, 3*PI/2);
 				break;
 			case '7':
 				drawFern(wd/2, ht, wd/2, 3*PI/2);
@@ -96,8 +96,8 @@ void drawTree( int x1, int y1, int distance, float angle) {
 	float inc_angle = PI/6;
 	gfx_line(x1, y1, x1 + distance*cos(angle), y1 + distance*sin(angle));
 
-	drawTree(x1 + distance*cos(angle), y1 + distance*sin(angle), (int) distance*.5, angle + inc_angle);
-	drawTree(x1 + distance*cos(angle), y1 + distance*sin(angle), (int) distance*.5, angle - inc_angle);
+	drawTree(x1 + distance*cos(angle), y1 + distance*sin(angle), (int) distance*.65, angle + inc_angle);
+	drawTree(x1 + distance*cos(angle), y1 + distance*sin(angle), (int) distance*.65, angle - inc_angle);
 
 }
 
@@ -125,9 +125,10 @@ void spiralSquares(int xstart, int ystart, float angle, int radius) {
 	int size = radius/10;
 	int xoff = radius * cos(angle); // x offset
 	int yoff = radius * sin(angle); // y offset
-	square(xstart + xoff, ystart + yoff, size);
 
-	radius *= 0.9;
+	square(xstart + xoff, ystart + yoff, size);
+	
+	radius *= 0.98;
 	spiralSquares(xstart, ystart, angle + PI/10, radius);
 }
 
