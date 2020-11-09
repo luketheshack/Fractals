@@ -15,6 +15,9 @@
 #define SIZE 50
 #define PI 3.14159
 
+// spiral of spirals
+void spiralSpirals(int, int, int, float);
+
 // draw snowflake
 void snowflake(int, int, int);
 

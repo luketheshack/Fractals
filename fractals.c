@@ -132,7 +132,6 @@ void spiralSquares(int xstart, int ystart, float angle, int radius) {
 	spiralSquares(xstart, ystart, angle + PI/10, radius);
 }
 
-
 void square(int xm, int ym, int radius) {
 	polygon(xm, ym, 4, radius);
 }
@@ -175,4 +174,12 @@ void snowflake(int x1, int y1, int distance) {
 		snowflake(x1 + distance*cos(i), y1 + distance*sin(i), distance * .35);
 	}
 
+}
+
+void spiralSpirals(int xstart, int ystart, int radius, float angle) {
+	if (radius < 2) return;
+	
+	gfx_point(xstart + radius*cos(angle), ystart + radius*sin(angle));
+
+	spiralSpirals(xstart, ystart, radius * .95, angle += PI/10);
 } 
