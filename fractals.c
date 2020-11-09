@@ -167,20 +167,14 @@ void drawLace(int x1, int y1, int radius) {
 }
 
 void snowflake(int x1, int y1, int distance) {
-	if (distance < 2) return;
+	if (distance < 6) return;
 	float angle = 2*PI/5;
 
 	float i;
 	for (i = 0; i <= 2*PI; i += angle) {
-		gfx_line(x1, y1, x1 + distance*cos(angle), y1 + distance*sin(angle));
-		snowflake(x1 + distance*cos(angle), y1 + distance*sin(angle), distance * .5);
+		printf("%d\n", distance);
+		gfx_line(x1, y1, x1 + distance*cos(i), y1 + distance*sin(i));
+		snowflake(x1 + distance*cos(i), y1 + distance*sin(i), distance * .5);
 	}
 
-	/*
-	gfx_line(x1, y1, x1 + distance*cos(angle), y1 + distance*sin(angle));
-	gfx_line(x1, y1, x1 + distance*cos(2*angle), y1 + distance*sin(2*angle));
-	gfx_line(x1, y1, x1 + distance*cos(3*angle), y1 + distance*sin(3*angle));
-	gfx_line(x1, y1, x1 + distance*cos(4*angle), y1 + distance*sin(4*angle));
-	gfx_line(x1, y1, x1 + distance*cos(5*angle), y1 + distance*sin(5*angle));
-	*/
 } 
