@@ -3,6 +3,10 @@
 // Modified and augmented by Prof. Ramzi Bualuan
 // Last edit: Oct 22, 2020
 
+// Luke Marushack
+// Fundamentals of Computing : Lab #10
+// fractals.c
+
 #ifndef GFX_H
 #define GFX_H
 
