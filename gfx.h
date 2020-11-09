@@ -15,6 +15,12 @@
 #define SIZE 50
 #define PI 3.14159
 
+// draw snowflake
+void snowflake(int, int, int);
+
+// circle lace
+void drawLace(int, int, int);
+
 // spiral squares
 void spiralSquares(int, int, int, int);
 

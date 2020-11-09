@@ -22,10 +22,10 @@ int main() {
 				spiralSquares(wd/2, ht/2, 0, ht/2);
 				break;
 			case '4':
-
+				drawLace(wd/2, ht/2, ht/3);
 				break;
 			case '5':
-
+				snowflake(wd/2, ht/2, ht/4);
 				break;
 			case '6':
 				drawTree(wd/2, ht, wd/2, 3*PI/2);
@@ -151,3 +151,36 @@ void polygon(int xm, int ym, int sides, int radius) {
 	}	
 }
 
+void drawLace(int x1, int y1, int radius) {
+	if (radius < 2) return;
+	gfx_circle(x1, y1, radius);
+	
+	int i;
+	int newrad = radius/3;
+	
+	drawLace(x1 + radius*cos(PI/3), y1 + radius*sin(PI/3), newrad);	
+	drawLace(x1 + radius*cos(2*PI/3), y1 + radius*sin(2*PI/3), newrad);		
+	drawLace(x1 + radius*cos(PI), y1 + radius*sin(PI), newrad);	
+	drawLace(x1 + radius*cos(4*PI/3), y1 + radius*sin(4*PI/3), newrad);		
+	drawLace(x1 + radius*cos(5*PI/3), y1 + radius*sin(4*PI/3), newrad);		
+	drawLace(x1 + radius*cos(2*PI), y1 + radius*sin(2*PI), newrad);	
+}
+
+void snowflake(int x1, int y1, int distance) {
+	if (distance < 2) return;
+	float angle = 2*PI/5;
+
+	float i;
+	for (i = 0; i <= 2*PI; i += angle) {
+		gfx_line(x1, y1, x1 + distance*cos(angle), y1 + distance*sin(angle));
+		snowflake(x1 + distance*cos(angle), y1 + distance*sin(angle), distance * .5);
+	}
+
+	/*
+	gfx_line(x1, y1, x1 + distance*cos(angle), y1 + distance*sin(angle));
+	gfx_line(x1, y1, x1 + distance*cos(2*angle), y1 + distance*sin(2*angle));
+	gfx_line(x1, y1, x1 + distance*cos(3*angle), y1 + distance*sin(3*angle));
+	gfx_line(x1, y1, x1 + distance*cos(4*angle), y1 + distance*sin(4*angle));
+	gfx_line(x1, y1, x1 + distance*cos(5*angle), y1 + distance*sin(5*angle));
+	*/
+} 
