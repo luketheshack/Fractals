@@ -34,7 +34,7 @@ int main() {
 				drawFern(wd/2, ht, wd/2, 3*PI/2);
 				break;
 			case '8':
-
+				spiralSpirals(wd/2, ht/2, 2*ht/3, 0);
 				break;
 			case 'q':
 				printf("Goodbye!\n");
@@ -180,6 +180,10 @@ void spiralSpirals(int xstart, int ystart, int radius, float angle) {
 	if (radius < 2) return;
 	
 	gfx_point(xstart + radius*cos(angle), ystart + radius*sin(angle));
+	int localx = xstart + radius*cos(angle);
+	int localy = ystart + radius*sin(angle);
+	spiralSpirals(localx, localy, radius * .25, angle + PI/10);
 
-	spiralSpirals(xstart, ystart, radius * .95, angle += PI/10);
-} 
+	spiralSpirals(xstart, ystart, radius * .97, angle + PI/10);
+}
+
