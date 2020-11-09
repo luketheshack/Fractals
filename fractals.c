@@ -48,7 +48,7 @@ int main() {
 	return 0;
 }
 
-
+// sierpinski triangles
 void sierpinski( int x1, int y1, int x2, int y2, int x3, int y3 )
 {
    // Base case. 
@@ -63,7 +63,7 @@ void sierpinski( int x1, int y1, int x2, int y2, int x3, int y3 )
    sierpinski( (x1+x3)/2, (y1+y3)/2, (x2+x3)/2, (y2+y3)/2, x3, y3 );
 }
 
-
+// draw traingle
 void drawTriangle( int x1, int y1, int x2, int y2, int x3, int y3 )
 {
     gfx_line(x1,y1,x2,y2);
@@ -71,6 +71,7 @@ void drawTriangle( int x1, int y1, int x2, int y2, int x3, int y3 )
     gfx_line(x3,y3,x1,y1);
 }
 
+// shrinking squares
 void shrinkingSquares( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 ) {
 	int dist = abs(x2-x1)/4;
 	if (dist < 5) return;
@@ -83,6 +84,7 @@ void shrinkingSquares( int x1, int y1, int x2, int y2, int x3, int y3, int x4, i
 	shrinkingSquares(x1, y1 + 2*dist, x1 + 2*dist, y1 + 2*dist, x1 + 2*dist, y1 + 4*dist, x1, y1 + 4*dist); 
 }
 
+// draw squares
 void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 ) {
 	gfx_line(x1,y1,x2,y2);
 	gfx_line(x2,y2,x3,y3);
@@ -90,6 +92,7 @@ void drawSquare( int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4 
 	gfx_line(x4,y4,x1,y1);
 }
 
+// draw tree
 void drawTree( int x1, int y1, int distance, float angle) {
 	if (distance < 1) return;
 	
@@ -101,6 +104,7 @@ void drawTree( int x1, int y1, int distance, float angle) {
 
 }
 
+// draw fern
 void drawFern(int x1, int y1, int distance, float angle) {
 	if (distance < 20) return;
 	float inc_angle = PI/6;
@@ -119,6 +123,7 @@ void drawFern(int x1, int y1, int distance, float angle) {
 	drawFern(x1 + 4*xoff/4, y1 + 4*yoff/4, (int) distance * .5, angle - inc_angle);
 }
 
+// spiral squares
 void spiralSquares(int xstart, int ystart, float angle, int radius) {
 	if (radius < 5) return;
 	if (angle > 2*PI) radius -= 2*PI;
@@ -132,10 +137,12 @@ void spiralSquares(int xstart, int ystart, float angle, int radius) {
 	spiralSquares(xstart, ystart, angle + PI/10, radius);
 }
 
+// square
 void square(int xm, int ym, int radius) {
 	polygon(xm, ym, 4, radius);
 }
 
+// polygon
 void polygon(int xm, int ym, int sides, int radius) {
 	float i, part, x1, x2, y1, y2;
 	part = 2*PI/sides;
@@ -149,6 +156,7 @@ void polygon(int xm, int ym, int sides, int radius) {
 	}	
 }
 
+// draw lace
 void drawLace(int x1, int y1, int radius) {
 	if (radius < 2) return;
 	gfx_circle(x1, y1, radius);
@@ -164,6 +172,7 @@ void drawLace(int x1, int y1, int radius) {
 	drawLace(x1 + radius*cos(2*PI), y1 + radius*sin(2*PI), newrad);	
 }
 
+// draw snowflake
 void snowflake(int x1, int y1, int distance) {
 	if (distance < 2) return;
 	float angle = 2*PI/5;
@@ -176,6 +185,7 @@ void snowflake(int x1, int y1, int distance) {
 
 }
 
+// spiral of spirals
 void spiralSpirals(int xstart, int ystart, int radius, float angle) {
 	if (radius < 2) return;
 	
