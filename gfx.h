@@ -22,7 +22,7 @@ void snowflake(int, int, int);
 void drawLace(int, int, int);
 
 // spiral squares
-void spiralSquares(int, int, int, int);
+void spiralSquares(int, int, float, int);
 
 // draw fern
 void drawFern(int, int, int, float);

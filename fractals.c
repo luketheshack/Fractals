@@ -119,18 +119,16 @@ void drawFern(int x1, int y1, int distance, float angle) {
 	drawFern(x1 + 4*xoff/4, y1 + 4*yoff/4, (int) distance * .5, angle - inc_angle);
 }
 
-void spiralSquares(int xstart, int ystart, int angle, int radius) {
+void spiralSquares(int xstart, int ystart, float angle, int radius) {
 	if (radius < 5) return;
 	if (angle > 2*PI) radius -= 2*PI;
 	int size = radius/10;
 	int xoff = radius * cos(angle); // x offset
 	int yoff = radius * sin(angle); // y offset
+	square(xstart + xoff, ystart + yoff, size);
 
-	//square(xstart + xoff, ystart + yoff, size);
-
-	angle += PI/10;
 	radius *= 0.9;
-	spiralSquares(xstart, ystart, angle, radius);
+	spiralSquares(xstart, ystart, angle + PI/10, radius);
 }
 
 
